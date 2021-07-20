@@ -1,6 +1,6 @@
+#TODO Add the option to dinamically select which word document will be used
 import docx2txt
 import jinja2
-
 
 PATH='template.html'
 
