@@ -1,13 +1,19 @@
 #TODO Create class and function
-#TODO Add the option to dinamically select which word document will be used
 
 import docx2txt
 import jinja2
+import tkinter as tk
+from tkinter import filedialog
 
 def main():
+    window = tk.Tk()
+    window.withdraw()
+    folder=filedialog.askopenfilename()
+    print(folder)
+
     PATH='template.html'
 
-    text=docx2txt.process("./WordDocs/Pensamientos 7.docx")
+    text=docx2txt.process(folder)
 
     templateLoader=jinja2.FileSystemLoader(searchpath="./Templates")
 
@@ -22,6 +28,7 @@ def main():
     f=open("./Output/pensamiento.html","wb")
     f.write(encoded_unicode)
     f.close()
+
 
 if __name__ == "__main__":
     main()
